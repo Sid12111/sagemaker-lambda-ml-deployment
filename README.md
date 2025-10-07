@@ -23,8 +23,8 @@ export SAGEMAKER_ROLE_ARN=arn:aws:iam::123456789012:role/SageMakerExecutionRole
 python sagemaker/train_model.py
 This trains a sample scikit-learn model locally, uploads model.tar.gz to S3, creates a SageMaker Model with inference.py, and deploys an endpoint. Note the printed endpoint name.
 
- **Deploy the Lambda function**
-Bash
+2) Deploy the Lambda function**
+'''bash
 export ENDPOINT_NAME=<your-endpoint-name>
 cd lambda_function
 # If you added any dependencies to requirements.txt:
@@ -32,7 +32,7 @@ cd lambda_function
 zip -r lambda_function.zip .
 # Create the Lambda function via AWS Console or AWS CLI and set the ENDPOINT_NAME env var
 
-Test Lambda
+3) Test Lambda
 Example event:
 JSON
 
@@ -42,13 +42,14 @@ JSON
     [6.7, 3.1, 4.7, 1.5]
   ]
 }
-Monitor endpoint metrics
-Bash
+
+4) Monitor endpoint metrics
+'''bash
 - export ENDPOINT_NAME=<your-endpoint-name>
 - python cloudwatch/monitor_endpoint.py
 
-Cleanup to avoid charges
-Bash
+5) Cleanup to avoid charges
+'''bash
 - aws sagemaker delete-endpoint --endpoint-name <your-endpoint-name>
 - aws sagemaker delete-endpoint-config --endpoint-config-name <your-endpoint-name>
 - aws sagemaker delete-model --model-name <your-endpoint-name>-model
