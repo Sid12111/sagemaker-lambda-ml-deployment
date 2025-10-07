@@ -14,7 +14,6 @@ This project demonstrates deploying, managing, and monitoring ML models using AW
 - Packages: sagemaker, boto3, scikit-learn, joblib
 ## Quickstart
 Deploy a model endpoint
-```bash
 export SAGEMAKER_ROLE_ARN=arn:aws:iam::123456789012:role/SageMakerExecutionRole
 # Optional: use instance-based instead of serverless
 # export USE_SERVERLESS=0
@@ -22,7 +21,6 @@ python sagemaker/train_model.py
 This trains a sample scikit-learn model locally, uploads model.tar.gz to S3, creates a SageMaker Model with inference.py, and deploys an endpoint. Note the printed endpoint name.
 
 Deploy the Lambda function
-```bash
 export ENDPOINT_NAME=<your-endpoint-name>
 cd lambda_function
 # If you added any dependencies to requirements.txt:
@@ -42,12 +40,10 @@ JSON
 }
 
 Monitor endpoint metrics
-```bash
 - export ENDPOINT_NAME=<your-endpoint-name>
 - python cloudwatch/monitor_endpoint.py
 
 Cleanup to avoid charges
-```bash
 - aws sagemaker delete-endpoint --endpoint-name <your-endpoint-name>
 - aws sagemaker delete-endpoint-config --endpoint-config-name <your-endpoint-name>
 - aws sagemaker delete-model --model-name <your-endpoint-name>-model
