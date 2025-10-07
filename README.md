@@ -15,6 +15,7 @@ This project demonstrates deploying, managing, and monitoring ML models using AW
 
 ## Quickstart
 
+
 1) Deploy a model endpoint
 ```bash
 export SAGEMAKER_ROLE_ARN=arn:aws:iam::123456789012:role/SageMakerExecutionRole
