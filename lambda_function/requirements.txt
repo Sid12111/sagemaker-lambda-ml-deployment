@@ -1,0 +1,4 @@
+# Keep this minimal; AWS provides boto3/botocore in the Lambda runtime.
+# Add only what you actually need beyond stdlib/boto3.
+# Example (optional):
+# aws-xray-sdk==2.12.0
